@@ -43,21 +43,23 @@ class GenerateData extends Command
      */
     public function handle()
     {
-        dump($this->generatePlayers(), 'done generating players');
         dump($this->generateGames(), 'done generating games');
+        dump($this->generatePlayers(), 'done generating players');
         dump($this->generateGamePlays(), 'done generating game plays');
         return 0;
     }
 
     public function generatePlayers()
     {
+        dump('started generating players');
         $players = [];
         for ($i=0; $i < 10000; $i++) {
             $data = [
                 'name' => $this->faker->name,
                 'nickname' => $this->faker->firstName,
                 'email' => $this->faker->email,
-                'password' => Hash::make($this->faker->password),
+                'password' => $this->faker->password,
+                // 'password' => Hash::make($this->faker->password),
                 'last_login' => now()
             ];
             array_push($players, $data);
@@ -67,7 +69,9 @@ class GenerateData extends Command
 
     public function generateGames()
     {
-        // make a single query of all the data instead of one by one
+        dump('started generating games');
+
+        //Done: make a single query of all the data instead of one by one
         $games = [
             'Call of Duty',
             'Mortal Kombat',
@@ -113,6 +117,8 @@ class GenerateData extends Command
 
     public function generateGamePlays()
     {
+        dump('started generating gameplays');
+
 
         $players = Players::all()->skip(0)->take(1500)->toArray();
 

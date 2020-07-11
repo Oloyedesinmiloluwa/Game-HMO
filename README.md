@@ -28,3 +28,10 @@ Generate data
 
 php artisan php artisan generate:data
 
+Heroku url
+https://games-hmo.herokuapp.com/api/v1
+
+Sample requests
+
+GET players http://localhost:8001/api/v1/players
+GET games http://localhost:8001/api/v1/games
