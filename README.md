@@ -16,4 +16,15 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
- 
+Setup
+
+- copy .env.example to .env and update
+- create database for the app and for test
+- run test with composer test
+- serve the app with php artisan serve
+- you may use the docker file to run with docker
+
+Generate data
+
+php artisan php artisan generate:data
+
